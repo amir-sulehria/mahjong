@@ -1,3 +1,6 @@
-.bg-dark {
-  background-color: black;
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  padding-bottom: 60px;
 }

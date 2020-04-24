@@ -1,8 +1,7 @@
 import React from "react"
+import { Link } from "gatsby"
 
 import { Nav, Navbar, Image } from "react-bootstrap"
-
-import headerStyle from "../components/header.module.css"
 
 export default function header() {
   return (
@@ -29,8 +28,12 @@ export default function header() {
         variant="dark"
       >
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Classic Mahjong</Nav.Link>
-          <Nav.Link href="#features">Mahjong Solitaire</Nav.Link>
+          <Nav.Link as={Link} to="/page-1">
+            Classic Mahjong
+          </Nav.Link>
+          <Nav.Link as={Link} to="/page-2">
+            Mahjong Solitaire
+          </Nav.Link>
           <Nav.Link href="#pricing">Multiplayer</Nav.Link>
           <Nav.Link href="#puzzle">Puzzle</Nav.Link>
         </Nav>
