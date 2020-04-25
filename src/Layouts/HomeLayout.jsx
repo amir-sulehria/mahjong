@@ -3,14 +3,19 @@ import React from "react"
 import GeneralLayout from "../Layouts/GeneralLayout"
 import PostLayout from "../Layouts/PostLayout"
 
-export default ({ data, pageContext }) => {
+export default ({ data, pageContext, name }) => {
   console.log(data)
 
   return (
     <GeneralLayout>
       <br />
       <br />
-      <h4>Category: {data.allWordpressPost.nodes[0].categories[0].name}</h4>
+      <h4>
+        Category:{" "}
+        <span style={{ fontStyle: "italic", fontWeight: "normal" }}>
+          {name}
+        </span>
+      </h4>
       <div
         dangerouslySetInnerHTML={{
           __html: data.allWordpressPost.nodes[0].categories[0].description,

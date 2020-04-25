@@ -5,7 +5,7 @@ import HomeLayout from "../Layouts/HomeLayout"
 export default ({ data }) => {
   console.log(data)
 
-  return <HomeLayout data={data} />
+  return <HomeLayout name="Multiplayer" data={data} />
 }
 
 //data from here will be automatically get added in props of above component
