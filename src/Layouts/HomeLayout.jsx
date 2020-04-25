@@ -3,8 +3,8 @@ import React from "react"
 import GeneralLayout from "../Layouts/GeneralLayout"
 import PostLayout from "../Layouts/PostLayout"
 
-export default ({ data, pathContext }) => {
-  console.log("hi " + pathContext)
+export default ({ data, pageContext }) => {
+  console.log("hi " + pageContext)
 
   return (
     <GeneralLayout>

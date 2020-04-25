@@ -7,7 +7,7 @@
 // You can delete this file if you're not using it
 const { createFilePath } = require("gatsby-source-filesystem")
 const path = require("path")
-const { paginate } = require("gatsby-awesome-pagination")
+const createPaginatedPages = require("gatsby-paginate")
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   //   console.log(node.internal.type) //it'll print our node name while building
@@ -27,9 +27,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+  console.log(graphql)
   return graphql(`
     {
       allWordpressPost {
+        totalCount
         nodes {
           title
           slug
@@ -41,13 +43,21 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(res => {
-    paginate({
-      createPage,
-      items: res.data.allWordpressPost.nodes,
-      itemsPerPage: 10,
-      pathPrefix: "/post",
-      component: path.resolve("src/Layouts/HomeLayout.jsx"),
+    const pageTemp = path.resolve("./src/pages/index.js")
+    const totalCount = res.data.allWordpressPost.totalCount
+    const pages = Math.ceil(totalCount / 9)
+
+    Array.from({ length: pages }).forEach((_, i) => {
+      actions.createPage({
+        path: `/posts/${i + 1}`,
+        component: pageTemp,
+        context: {
+          skip: i * 9,
+          currentPage: i + 1,
+        },
+      })
     })
+
     res.data.allWordpressPost.nodes.forEach(node => {
       createPage({
         path: node.slug,
