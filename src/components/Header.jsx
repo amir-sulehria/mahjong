@@ -28,14 +28,18 @@ export default function header() {
         variant="dark"
       >
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/page-1">
+          <Nav.Link as={Link} to="/classic-mahjong">
             Classic Mahjong
           </Nav.Link>
-          <Nav.Link as={Link} to="/page-2">
+          <Nav.Link as={Link} to="/mahjong-solitaire">
             Mahjong Solitaire
           </Nav.Link>
-          <Nav.Link href="#pricing">Multiplayer</Nav.Link>
-          <Nav.Link href="#puzzle">Puzzle</Nav.Link>
+          <Nav.Link as={Link} to="/multiplayer">
+            Multiplayer
+          </Nav.Link>
+          <Nav.Link as={Link} to="/puzzle">
+            Puzzle
+          </Nav.Link>
         </Nav>
       </Navbar>
     </div>

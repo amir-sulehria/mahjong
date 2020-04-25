@@ -9,7 +9,10 @@ export default function PostLayout(props) {
       <Card>
         <Card.Img variant="top" src={props.img} />
         <Card.Body>
-          <Link to={props.readMore}>{props.title}</Link>
+          <Link
+            to={props.readMore}
+            dangerouslySetInnerHTML={{ __html: props.title }}
+          />
         </Card.Body>
       </Card>
     </div>

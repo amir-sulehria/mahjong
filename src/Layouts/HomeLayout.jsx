@@ -4,10 +4,18 @@ import GeneralLayout from "../Layouts/GeneralLayout"
 import PostLayout from "../Layouts/PostLayout"
 
 export default ({ data, pageContext }) => {
-  console.log("hi " + pageContext)
+  console.log(data)
 
   return (
     <GeneralLayout>
+      <br />
+      <br />
+      <h4>Category: {data.allWordpressPost.nodes[0].categories[0].name}</h4>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: data.allWordpressPost.nodes[0].categories[0].description,
+        }}
+      />
       <div className="row">
         {data.allWordpressPost.nodes.map(node => (
           <div className="col-md-4">

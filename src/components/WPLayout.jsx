@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import GeneralLayout from "../Layouts/GeneralLayout"
+import ContactForm from "./ContactForm"
 
 const WPLayout = props => {
   const post = props.data.wordpressPost
@@ -20,6 +21,7 @@ const WPLayout = props => {
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
       </div>
+      <ContactForm />
     </GeneralLayout>
   )
 }

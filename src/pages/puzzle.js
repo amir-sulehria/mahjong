@@ -11,7 +11,9 @@ export default ({ data }) => {
 //data from here will be automatically get added in props of above component
 export const query = graphql`
   {
-    allWordpressPost {
+    allWordpressPost(
+      filter: { categories: { elemMatch: { name: { eq: "Puzzle" } } } }
+    ) {
       nodes {
         title
         slug
@@ -19,6 +21,10 @@ export const query = graphql`
         content
         date
         gamekey
+        categories {
+          name
+          description
+        }
       }
     }
   }
