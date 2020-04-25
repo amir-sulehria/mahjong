@@ -21,6 +21,7 @@ export const query = graphql`
         content
         date
         gamekey
+        ratings_average
         categories {
           name
           description

@@ -19,6 +19,7 @@ export const query = graphql`
         slug
         excerpt
         content
+        ratings_average
         date
         gamekey
         categories {

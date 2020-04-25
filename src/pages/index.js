@@ -16,6 +16,7 @@ export default props => {
               img={`https://static.mahjongonline.org/imgs/${node.gamekey}-300x250.png`}
               description={node.content}
               readMore={node.slug}
+              stars={node.ratings_average}
             />
           </div>
         ))}
@@ -38,6 +39,7 @@ export const query = graphql`
         slug
         excerpt
         content
+        ratings_average
         date
         gamekey
       }
