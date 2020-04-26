@@ -1,33 +1,32 @@
 import React from "react"
-import { Link } from "gatsby"
+import { makeStyles } from "@material-ui/core/styles"
+import Pagination from "@material-ui/lab/Pagination"
+import { navigateTo } from "gatsby"
 
-export default function Pagination({ totalCount, currentPage }) {
-  const totalPages = Math.ceil(totalCount / 10)
-  const nextPage = currentPage + 1
-  const prevPage = currentPage - 1
+const useStyles = makeStyles(theme => ({
+  root: {
+    "& > *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}))
 
-  let nextLink = ""
-  let prevLink = ""
-  if (!isNaN(prevPage)) {
-    prevLink = `/posts/${prevPage}`
-    nextLink = `/posts/${nextPage}`
-  } else {
-    if (totalCount > 10) {
-      nextLink = `/posts/2`
-    } else {
-      nextLink = `/posts/1`
-    }
-    prevLink = `/posts/1`
-  }
+function handleChange(e, value) {
+  navigateTo(`/posts/${value}`)
+}
+export default function PaginationRounded({ totalCount, currentPage }) {
+  const classes = useStyles()
 
+  const totalPages = Math.ceil(totalCount / 30)
   return (
-    <div style={{ textAlign: "center" }}>
-      <p>
-        <Link to={prevLink}>← Prev</Link>
-        {"   "}You are currently on page {currentPage} of {totalPages}
-        {"   "}
-        <Link to={nextLink}>Next →</Link>
-      </p>
+    <div className={classes.root}>
+      <Pagination
+        count={totalPages}
+        page={currentPage}
+        onChange={handleChange}
+        variant="outlined"
+        shape="rounded"
+      />
     </div>
   )
 }

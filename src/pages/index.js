@@ -42,10 +42,14 @@ export default props => {
           </div>
         ))}
       </div>
-      <Pagination
-        currentPage={props.pageContext.currentPage}
-        totalCount={props.data.allWordpressPost.totalCount}
-      />
+      <div style={{ padding: "30px" }}>
+        <div style={{ margin: "0 auto", width: "15em" }}>
+          <Pagination
+            currentPage={props.pageContext.currentPage}
+            totalCount={props.data.allWordpressPost.totalCount}
+          />
+        </div>
+      </div>
     </GeneralLayout>
   )
 }
