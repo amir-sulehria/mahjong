@@ -11,21 +11,22 @@ const WPLayout = props => {
     <GeneralLayout>
       <br />
       <br />
-      <div className="row">
-        <div className="col-md-5"></div>
-        <iframe
-          src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fzebramahjong%2F&width=88&layout=button_count&action=like&size=small&share=false&height=21&appId"
-          width="88"
-          height="21"
-          style={{
-            border: "none",
-            overflow: "hidden",
-          }}
-          scrolling="no"
-          frameborder="0"
-          allowTransparency="true"
-          allow="encrypted-media"
-        ></iframe>
+      <div style={{ padding: "30px" }}>
+        <div style={{ margin: "0 auto", width: "15em" }}>
+          <iframe
+            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fzebramahjong%2F&width=88&layout=button_count&action=like&size=small&share=false&height=21&appId"
+            width="88"
+            height="21"
+            style={{
+              border: "none",
+              overflow: "hidden",
+            }}
+            scrolling="no"
+            frameborder="0"
+            allowTransparency="true"
+            allow="encrypted-media"
+          ></iframe>
+        </div>
       </div>
       <div className="row">
         <div style={{ textAlign: "center" }} className="col-md-12">
@@ -35,17 +36,19 @@ const WPLayout = props => {
               dangerouslySetInnerHTML={{ __html: post.title }}
             />
             <div style={{ float: "right" }}>
-              Rating
-              <br />{" "}
-              <StarRatingComponent
-                name="rate1"
-                starCount={5}
-                value={parseFloat(post.ratings_average)}
-              />
+              <span>Rating </span>
+              {/* <br /> */}
+              <span>
+                <StarRatingComponent
+                  name="rate1"
+                  starCount={5}
+                  value={parseFloat(post.ratings_average)}
+                />
+              </span>
             </div>
           </div>
         </div>
-        <div style={{ textAlign: "justify" }} className="col-md-12">
+        <div style={{ textAlign: "center" }} className="col-md-12">
           <iframe
             src={post.iframe_url}
             width="640"

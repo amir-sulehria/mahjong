@@ -12,21 +12,22 @@ export default props => {
     <GeneralLayout desc={{ description }}>
       <br />
       <br />
-      <div className="row">
-        <div className="col-md-5"></div>
-        <iframe
-          src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fzebramahjong%2F&width=88&layout=button_count&action=like&size=small&share=false&height=21&appId"
-          width="88"
-          height="21"
-          style={{
-            border: "none",
-            overflow: "hidden",
-          }}
-          scrolling="no"
-          frameborder="0"
-          allowTransparency="true"
-          allow="encrypted-media"
-        ></iframe>
+      <div style={{ padding: "30px" }}>
+        <div style={{ margin: "0 auto", width: "15em" }}>
+          <iframe
+            src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fzebramahjong%2F&width=88&layout=button_count&action=like&size=small&share=false&height=21&appId"
+            width="88"
+            height="21"
+            style={{
+              border: "none",
+              overflow: "hidden",
+            }}
+            scrolling="no"
+            frameborder="0"
+            allowTransparency="true"
+            allow="encrypted-media"
+          ></iframe>
+        </div>
       </div>
 
       <div className="row">
