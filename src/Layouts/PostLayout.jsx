@@ -8,20 +8,36 @@ export default function PostLayout(props) {
   return (
     <div className="p-3">
       <Card>
-        <Card.Img variant="top" src={props.img} />
-        <Card.Body>
-          <Card.Text>
+        <div>
+          <Link to={props.readMore}>
+            <Card.Img
+              style={{ opacity: "0.9" }}
+              variant="top"
+              src={props.img}
+            />
+          </Link>
+          <span
+            style={{
+              position: "absolute",
+              top: "8px",
+              right: "16px",
+            }}
+          >
             <StarRatingComponent
               name="rate1"
+              starColor="#FFCE00"
               starCount={5}
-              value={props.stars}
+              emptyStarColor="#686C80"
+              value={parseFloat(props.stars)}
             />
-          </Card.Text>
-          <Link
-            to={props.readMore}
-            dangerouslySetInnerHTML={{ __html: props.title }}
-          />
-        </Card.Body>
+          </span>
+        </div>
+        {/* <Card.Body> */}
+        <Link
+          to={props.readMore}
+          dangerouslySetInnerHTML={{ __html: props.title }}
+        />
+        {/* </Card.Body> */}
       </Card>
     </div>
   )

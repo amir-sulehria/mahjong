@@ -45,14 +45,14 @@ exports.createPages = ({ graphql, actions }) => {
   `).then(res => {
     const pageTemp = path.resolve("./src/pages/index.js")
     const totalCount = res.data.allWordpressPost.totalCount
-    const pages = Math.ceil(totalCount / 9)
+    const pages = Math.ceil(totalCount / 30)
 
     Array.from({ length: pages }).forEach((_, i) => {
       actions.createPage({
         path: `/posts/${i + 1}`,
         component: pageTemp,
         context: {
-          skip: i * 9,
+          skip: i * 30,
           currentPage: i + 1,
         },
       })

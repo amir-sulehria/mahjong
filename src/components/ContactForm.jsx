@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap"
 export default () => {
   return (
     <div className="pt-5">
-      <h1>Leave a Reply</h1>
+      <h3>Leave a Reply</h3>
       <p>
         Your email address will not be published. Required fields are marked{" "}
         <span style={{ color: "red" }}>*</span>
@@ -15,11 +15,15 @@ export default () => {
           <Form.Control as="textarea" rows="3" />
         </Form.Group>
         <Form.Group controlId="contactForm.Name">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>
+            Name<span style={{ color: "red" }}>*</span>
+          </Form.Label>
           <Form.Control type="name" placeholder="Name..." />
         </Form.Group>
         <Form.Group controlId="contactForm.Mail">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>
+            Email<span style={{ color: "red" }}>*</span>
+          </Form.Label>
           <Form.Control type="email" placeholder="name@example.com" />
         </Form.Group>
         <Form.Group controlId="contactForm.Website">

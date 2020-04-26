@@ -16,12 +16,14 @@ export default function header() {
           position: "relative",
         }}
       >
-        <Image
-          fluid
-          src="https://static.mahjongonline.org/logo.png"
-          style={{ position: "absolute", bottom: "0" }}
-          alt="mahojan"
-        />
+        <Link to="/">
+          <Image
+            fluid
+            src="https://static.mahjongonline.org/logo.png"
+            style={{ position: "absolute", bottom: "0" }}
+            alt="mahojan"
+          />
+        </Link>
       </div>
       <Navbar
         style={{ backgroundColor: "black", height: "3em" }}
